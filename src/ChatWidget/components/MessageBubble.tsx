@@ -4,30 +4,29 @@
  */
 
 import { motion } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import type { Message } from '../types';
 
 interface MessageBubbleProps {
   message: Message;
   onAnimationComplete?: () => void;
+  /**
+   * Called on each streaming tick so the parent can auto-scroll
+   */
+  onStreamingUpdate?: () => void;
 }
 
-export const MessageBubble = ({ message, onAnimationComplete }: MessageBubbleProps) => {
+export const MessageBubble = ({
+  message,
+  onAnimationComplete,
+  onStreamingUpdate,
+}: MessageBubbleProps) => {
   const [displayedText, setDisplayedText] = useState('');
   const [isComplete, setIsComplete] = useState(!message.isStreaming);
-  const hasAnimated = useRef(false);
 
   useEffect(() => {
+    // Non-streaming messages: render immediately and call completion once
     if (!message.isStreaming) {
-      setDisplayedText(message.content);
-      setIsComplete(true);
-      // Call completion immediately for non-streaming messages
-      onAnimationComplete?.();
-      return;
-    }
-
-    // If already animated once, show full text immediately
-    if (hasAnimated.current) {
       setDisplayedText(message.content);
       setIsComplete(true);
       onAnimationComplete?.();
@@ -38,12 +37,14 @@ export const MessageBubble = ({ message, onAnimationComplete }: MessageBubblePro
     let currentIndex = 0;
     setDisplayedText('');
     setIsComplete(false);
-    hasAnimated.current = true;
 
     const interval = setInterval(() => {
       if (currentIndex < message.content.length) {
         setDisplayedText((prev) => prev + message.content[currentIndex]);
         currentIndex++;
+
+        // Notify parent on each character so it can keep the view pinned
+        onStreamingUpdate?.();
       } else {
         setIsComplete(true);
         clearInterval(interval);
@@ -53,7 +54,10 @@ export const MessageBubble = ({ message, onAnimationComplete }: MessageBubblePro
     }, 20);
 
     return () => clearInterval(interval);
-  }, [message.content, message.isStreaming, onAnimationComplete]);
+    // Intentionally not including callbacks in deps to avoid restarting
+    // the streaming effect mid-way if the parent re-renders.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [message.content, message.isStreaming]);
 
   const isUser = message.sender === 'user';
 
@@ -90,11 +94,10 @@ export const MessageBubble = ({ message, onAnimationComplete }: MessageBubblePro
       )}
 
       <div
-        className={`max-w-[80%] rounded-2xl px-4 py-3 ${
-          isUser
+        className={`max-w-[80%] rounded-2xl px-4 py-3 ${isUser
             ? 'bg-gradient-to-br from-indigo-600 to-indigo-500 text-white rounded-br-sm shadow-lg'
             : 'bg-neutral-800 text-neutral-100 rounded-bl-sm border border-neutral-700'
-        }`}
+          }`}
       >
         <p className="text-sm leading-relaxed whitespace-pre-wrap break-words">
           {displayedText}
@@ -115,9 +118,8 @@ export const MessageBubble = ({ message, onAnimationComplete }: MessageBubblePro
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.7 }}
             transition={{ delay: 0.2 }}
-            className={`text-xs mt-1 block ${
-              isUser ? 'text-white/70' : 'text-neutral-400'
-            }`}
+            className={`text-xs mt-1 block ${isUser ? 'text-white/70' : 'text-neutral-400'
+              }`}
           >
             {(() => {
               try {

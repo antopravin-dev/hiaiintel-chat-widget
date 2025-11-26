@@ -18,7 +18,7 @@ export const ChatWidget = ({ config }: ChatWidgetProps) => {
   // Lock body scroll when chat is open
   useLockBodyScroll(isChatOpen);
 
-  const { messages, isTyping, sendMessage, clearMessages } = useChatMessages({
+  const { messages, isTyping, sendMessage, clearMessages, markMessageComplete } = useChatMessages({
     storageKey: config?.storageKey,
     responsesData: config?.responsesData || defaultResponses,
   });
@@ -36,6 +36,7 @@ export const ChatWidget = ({ config }: ChatWidgetProps) => {
         isTyping={isTyping}
         onSendMessage={sendMessage}
         onClearMessages={clearMessages}
+        onMarkMessageComplete={markMessageComplete}
       />
       <ChatLauncher onClick={toggleChat} isOpen={isChatOpen} />
     </>

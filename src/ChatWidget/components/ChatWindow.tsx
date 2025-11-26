@@ -12,6 +12,7 @@ interface ChatWindowProps {
   isTyping: boolean;
   onSendMessage: (content: string) => void;
   onClearMessages: () => void;
+  onMarkMessageComplete: (messageId: string) => void;
 }
 
 export const ChatWindow = ({
@@ -21,6 +22,7 @@ export const ChatWindow = ({
   isTyping,
   onSendMessage,
   onClearMessages,
+  onMarkMessageComplete,
 }: ChatWindowProps) => {
   const [inputValue, setInputValue] = useState('');
   const [showSuggestions, setShowSuggestions] = useState<{ [key: string]: boolean }>({});
@@ -34,7 +36,11 @@ export const ChatWindow = ({
   const scrollToBottom = () => {
     const container = messagesContainerRef.current;
     if (!container) return;
-    container.scrollTop = container.scrollHeight;
+
+    // Ensure we scroll after DOM/layout updates
+    requestAnimationFrame(() => {
+      container.scrollTop = container.scrollHeight;
+    });
   };
 
   const handleScroll = () => {
@@ -144,11 +150,7 @@ export const ChatWindow = ({
               {/* Header */}
               <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-neutral-800 bg-neutral-900">
                 <div className="flex items-center gap-3 flex-1">
-                  <img
-                    src="/haiintel-logo.svg"
-                    alt="HaiIntel"
-                    className="h-6 w-auto"
-                  />
+                  <img src="/haiintel-logo.svg" alt="HaiIntel" className="h-6 w-auto" />
                   <div className="flex flex-col">
                     <h3 className="text-base sm:text-lg font-semibold text-white">
                       HaiIntel Assistant
@@ -254,6 +256,9 @@ export const ChatWindow = ({
                           <MessageBubble
                             message={message}
                             onAnimationComplete={() => {
+                              if (message.isStreaming) {
+                                onMarkMessageComplete(message.id);
+                              }
                               setShowSuggestions((prev) => {
                                 if (prev[message.id]) return prev;
                                 return {
@@ -261,6 +266,13 @@ export const ChatWindow = ({
                                   [message.id]: true,
                                 };
                               });
+                              scrollToBottom();
+                            }}
+                            onStreamingUpdate={() => {
+                              // Only auto-scroll while user is near bottom
+                              if (shouldAutoScrollRef.current) {
+                                scrollToBottom();
+                              }
                             }}
                           />
                           {shouldShowSuggestions && (
