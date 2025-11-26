@@ -265,7 +265,7 @@ export const ChatWindow = ({
                           />
                           {shouldShowSuggestions && (
                             <SuggestionChips
-                              suggestions={message.suggestions}
+                              suggestions={message.suggestions || []}
                               onSuggestionClick={onSendMessage}
                             />
                           )}
