@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { ChatWindow } from './components/ChatWindow';
 import { ChatLauncher } from './components/ChatLauncher';
 import { useChatMessages } from './hooks/useChatMessages';
-import { useLockBodyScroll } from '../hooks/useLockBodyScroll';
+// import { useLockBodyScroll } from '../hooks/useLockBodyScroll';
 import type { ChatWidgetProps } from './types';
 import defaultResponses from '../data/responses.json';
 
@@ -16,7 +16,7 @@ export const ChatWidget = ({ config }: ChatWidgetProps) => {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   // Lock body scroll when chat is open
-  useLockBodyScroll(isChatOpen);
+  // useLockBodyScroll(isChatOpen);
 
   const { messages, isTyping, sendMessage, clearMessages, markMessageComplete } = useChatMessages({
     storageKey: config?.storageKey,
