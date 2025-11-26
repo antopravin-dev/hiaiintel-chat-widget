@@ -28,6 +28,7 @@ export class MessageStorage {
       return parsed.map((msg: Message) => ({
         ...msg,
         timestamp: new Date(msg.timestamp),
+        isStreaming: false,
       }));
     } catch (error) {
       console.error('Failed to load messages from localStorage:', error);

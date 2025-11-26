@@ -105,10 +105,23 @@ export const useChatMessages = ({ storageKey, responsesData }: UseChatMessagesPr
     initializeGreeting();
   }, [initializeGreeting]);
 
+  // Mark a message as no longer streaming
+  const markMessageComplete = useCallback((messageId:
+    string) => {
+    setMessages((prev) =>
+      prev.map((msg) =>
+        msg.id === messageId ? {
+          ...msg, isStreaming: false
+        } : msg
+      )
+    );
+  }, []);
+
   return {
     messages,
     isTyping,
     sendMessage,
     clearMessages,
+    markMessageComplete
   };
 };
