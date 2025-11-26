@@ -1,0 +1,115 @@
+{
+  "greetings": [
+    {
+      "response": "Hello! Welcome to HaiIntel. I'm here to help you learn about our AI-powered intelligence solutions. What would you like to know?",
+      "keywords": ["hello", "hi", "hey", "greetings", "start"],
+      "suggestions": ["What services do you offer?", "Tell me about your AI philosophy", "How do I get started?"]
+    },
+    {
+      "response": "Hi there! Thanks for reaching out to HaiIntel. We specialize in cutting-edge AI solutions for businesses. How can I assist you today?",
+      "keywords": ["hello", "hi", "hey"],
+      "suggestions": ["What can you help with?", "Show me your services", "What industries do you serve?"]
+    }
+  ],
+  "services": [
+    {
+      "response": "HaiIntel offers comprehensive AI-powered intelligence solutions including custom AI model development, machine learning integration, data analytics, and AI strategy consulting. We help businesses transform their operations with intelligent automation.",
+      "keywords": ["services", "offer", "provide", "do", "solutions", "what do you"],
+      "suggestions": ["What's your pricing?", "What technology do you use?", "How do I get started?"]
+    },
+    {
+      "response": "Our core services include: AI/ML model development, natural language processing solutions, computer vision systems, predictive analytics, and AI implementation consulting. We tailor each solution to your specific business needs.",
+      "keywords": ["services", "offerings", "capabilities", "solutions"],
+      "suggestions": ["Tell me about pricing", "What industries do you serve?", "Can you explain your process?"]
+    },
+    {
+      "response": "We specialize in building custom AI solutions for enterprises - from conversational AI and chatbots to advanced machine learning models for automation and decision-making. Each project is designed to deliver measurable business value.",
+      "keywords": ["ai", "machine learning", "ml", "automation", "custom"],
+      "suggestions": ["What's your AI philosophy?", "How much does it cost?", "Who backs HaiIntel?"]
+    }
+  ],
+  "philosophy": [
+    {
+      "response": "At HaiIntel, we believe AI should be accessible, practical, and transformative. Our philosophy centers on building AI solutions that are not just cutting-edge, but also ethical, explainable, and genuinely useful for real-world business challenges.",
+      "keywords": ["philosophy", "believe", "values", "approach", "mission", "vision"],
+      "suggestions": ["What services do you provide?", "What technology do you use?", "Tell me about Vibrant Capital"]
+    },
+    {
+      "response": "We're committed to responsible AI development. This means creating systems that are transparent, fair, and designed with human oversight in mind. We believe the best AI augments human intelligence rather than replacing it.",
+      "keywords": ["philosophy", "ethics", "responsible", "approach", "principles"],
+      "suggestions": ["How do you ensure ethical AI?", "What's your approach?", "Tell me about your services"]
+    },
+    {
+      "response": "Our approach is human-centric AI. We focus on understanding your business problems first, then applying the right AI technology to solve them effectively. Technology should serve people, not the other way around.",
+      "keywords": ["philosophy", "approach", "methodology", "focus"],
+      "suggestions": ["What makes you different?", "How do I get started?", "What industries do you work with?"]
+    }
+  ],
+  "vibrant_capital": [
+    {
+      "response": "HaiIntel is proudly supported by Vibrant Capital, a forward-thinking venture capital firm that specializes in AI and deep tech investments. This partnership enables us to stay at the forefront of AI innovation while maintaining our focus on delivering practical business solutions.",
+      "keywords": ["vibrant capital", "funding", "investors", "backed", "partner"],
+      "suggestions": ["What does this mean for clients?", "Tell me about your services", "What's your vision?"]
+    },
+    {
+      "response": "Vibrant Capital is our strategic partner and investor. Their expertise in scaling AI companies and deep understanding of the tech landscape helps us accelerate innovation and better serve our clients globally.",
+      "keywords": ["vibrant", "capital", "vc", "investor", "funding"],
+      "suggestions": ["How does this help you?", "What services do you offer?", "How can I work with you?"]
+    }
+  ],
+  "technology": [
+    {
+      "response": "We work with cutting-edge AI technologies including large language models (LLMs), transformer architectures, deep learning frameworks like PyTorch and TensorFlow, and cloud-native AI infrastructure. Our tech stack is constantly evolving to include the latest breakthroughs.",
+      "keywords": ["technology", "tech", "stack", "tools", "frameworks", "llm", "models"],
+      "suggestions": ["What can you build with this?", "How do you choose technology?", "What's your pricing?"]
+    },
+    {
+      "response": "Our expertise spans the full AI spectrum: from classical machine learning to state-of-the-art generative AI, computer vision, NLP, and reinforcement learning. We choose the right technology based on your specific use case, not hype.",
+      "keywords": ["technology", "ai", "capabilities", "expertise"],
+      "suggestions": ["Show me examples", "What industries do you serve?", "How do I get started?"]
+    }
+  ],
+  "pricing": [
+    {
+      "response": "Our pricing is project-based and tailored to your specific needs. We offer flexible engagement models including fixed-price projects, retainer agreements, and dedicated team arrangements. I'd be happy to connect you with our team for a customized quote.",
+      "keywords": ["pricing", "cost", "price", "expensive", "budget", "rates"],
+      "suggestions": ["How do I get started?", "What's the process?", "What services do you offer?"]
+    },
+    {
+      "response": "We believe in transparent pricing that reflects the value we deliver. Every project starts with a discovery phase to understand your requirements, after which we provide a detailed proposal. Would you like to schedule a consultation to discuss your specific needs?",
+      "keywords": ["cost", "pricing", "how much", "rates", "fees"],
+      "suggestions": ["Tell me about the process", "What industries do you work with?", "How long does it take?"]
+    }
+  ],
+  "getting_started": [
+    {
+      "response": "Getting started with HaiIntel is easy! We typically begin with a discovery call to understand your business challenges and AI readiness. From there, we create a customized roadmap and proof-of-concept. Would you like to schedule an initial consultation?",
+      "keywords": ["get started", "start", "begin", "onboard", "process", "how to"],
+      "suggestions": ["What's the timeline?", "What does it cost?", "Tell me more about your services"]
+    },
+    {
+      "response": "Our engagement process is straightforward: (1) Discovery call to understand your needs, (2) Feasibility assessment and proposal, (3) POC development, (4) Full implementation, and (5) Ongoing support. We're with you every step of the way.",
+      "keywords": ["process", "workflow", "steps", "how do", "get started"],
+      "suggestions": ["How long does this take?", "What's your pricing?", "What technology do you use?"]
+    }
+  ],
+  "industries": [
+    {
+      "response": "We serve a diverse range of industries including finance, healthcare, retail, manufacturing, and technology. Our AI solutions are adaptable to any sector where data-driven decision-making and automation can create value.",
+      "keywords": ["industries", "sectors", "verticals", "clients", "who"],
+      "suggestions": ["Can you help my industry?", "What services do you offer?", "How do I get started?"]
+    }
+  ],
+  "fallback": [
+    {
+      "response": "That's a great question! While I can provide general information about HaiIntel's AI solutions, services, and philosophy, I'd love to connect you with our team for more specific details. What aspect of HaiIntel interests you most?",
+      "keywords": [],
+      "suggestions": ["Tell me about your services", "What's your AI philosophy?", "How do I contact you?"]
+    },
+    {
+      "response": "I want to make sure I give you the most accurate information. Could you tell me more about what you're looking for? I can share details about our services, AI approach, technology, or how we work with clients.",
+      "keywords": [],
+      "suggestions": ["Show me your services", "What technology do you use?", "What industries do you serve?"]
+    }
+  ]
+}

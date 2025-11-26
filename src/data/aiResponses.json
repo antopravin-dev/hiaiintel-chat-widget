@@ -1,0 +1,43 @@
+{
+  "greetings": [
+    "Hi! How can I help you today?",
+    "Hello! I'm here to assist you. What can I do for you?",
+    "Hey there! What brings you here today?",
+    "Welcome! How may I assist you?"
+  ],
+  "responses": [
+    "That's a great question! Let me help you with that.",
+    "I understand what you're asking. Here's what I think...",
+    "Thanks for sharing that with me. Based on what you've said, I'd recommend...",
+    "I appreciate you reaching out. Let me provide some insights on that.",
+    "That's an interesting point! Here's my perspective...",
+    "I'd be happy to help you with that. Let me explain...",
+    "Great question! From my experience, I can tell you that...",
+    "I see what you're getting at. Allow me to clarify...",
+    "Thank you for asking! This is actually a common question, and here's what you need to know...",
+    "I'm glad you brought that up! Let me share some helpful information with you.",
+    "Excellent inquiry! Based on the information available, I can suggest...",
+    "That's definitely worth discussing! Here are my thoughts on the matter...",
+    "I understand your concern. Let me address that for you...",
+    "Thanks for your message! This is definitely something I can help you with.",
+    "Interesting! I have some experience with this topic. Here's what I recommend...",
+    "I appreciate your patience. Let me provide you with a detailed answer...",
+    "That makes sense! Here's what you should know about this...",
+    "Good point! I'd like to share some relevant information with you...",
+    "I'm here to help! Based on your question, I think the best approach would be...",
+    "Thanks for reaching out! This is definitely within my area of expertise."
+  ],
+  "followups": [
+    "Is there anything else you'd like to know?",
+    "Does this answer your question? Feel free to ask if you need more details.",
+    "I hope that helps! What else can I assist you with?",
+    "Let me know if you need any clarification on that.",
+    "Is there anything else I can help you with today?"
+  ],
+  "fallbacks": [
+    "I'm not entirely sure about that, but I'd be happy to help you find the answer.",
+    "That's an interesting question! Could you provide a bit more context?",
+    "I want to make sure I give you the most accurate information. Could you rephrase that?",
+    "I'm here to help! Can you tell me more about what you're looking for?"
+  ]
+}
