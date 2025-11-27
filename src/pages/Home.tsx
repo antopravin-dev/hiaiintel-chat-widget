@@ -5,7 +5,7 @@
 
 export const Home = () => {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-16 flex flex-col items-center text-center gap-12">
+    <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16 flex flex-col items-center text-center gap-8 sm:gap-12 w-full">
       <div className="flex flex-col gap-6 items-center">
         <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-indigo-900/30 text-indigo-400 border border-indigo-800">
           HaiIntel AI Assistant

@@ -5,7 +5,7 @@
 
 export const Integration = () => {
   return (
-    <main className="max-w-6xl mx-auto px-6 py-16">
+    <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-16 w-full">
       {/* Header */}
       <div className="mb-12">
         <h1 className="text-5xl font-bold text-white mb-4">
