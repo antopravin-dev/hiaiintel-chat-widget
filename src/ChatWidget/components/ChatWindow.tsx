@@ -102,6 +102,14 @@ export const ChatWindow = ({
     }
   };
 
+  const handleInputBlur = () => {
+    // Fix iOS zoom issue: scroll to top when keyboard closes to reset zoom
+    if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+    }
+  };
+
   const quickSuggestions = [
     'What services do you offer?',
     'Tell me about your AI philosophy',
@@ -300,8 +308,10 @@ export const ChatWindow = ({
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={handleKeyPress}
+                    onBlur={handleInputBlur}
                     placeholder="Type your message..."
-                    className="flex-1 min-w-0 px-3 sm:px-4 py-2.5 rounded-lg border border-neutral-700 bg-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none text-sm sm:text-base"
+                    className="flex-1 min-w-0 px-3 sm:px-4 py-2.5 rounded-lg border border-neutral-700 bg-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none text-base"
+                    style={{ fontSize: '16px' }}
                     rows={1}
                   />
                   <button

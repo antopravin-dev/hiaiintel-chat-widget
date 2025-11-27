@@ -57,6 +57,14 @@ const ChatWindow = ({ isOpen, onClose }: ChatWindowProps) => {
     }
   };
 
+  const handleInputBlur = () => {
+    // Fix iOS zoom issue: scroll to top when keyboard closes to reset zoom
+    if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+    }
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -167,8 +175,10 @@ const ChatWindow = ({ isOpen, onClose }: ChatWindowProps) => {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyDown={handleKeyPress}
+                  onBlur={handleInputBlur}
                   placeholder="Type your message..."
-                  className="flex-1 min-w-0 px-4 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white placeholder-neutral-500 dark:placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 resize-none"
+                  className="flex-1 min-w-0 px-4 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white placeholder-neutral-500 dark:placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 resize-none text-base"
+                  style={{ fontSize: '16px' }}
                   rows={1}
                 />
                 <button
