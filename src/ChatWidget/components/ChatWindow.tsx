@@ -144,9 +144,9 @@ export const ChatWindow = ({
               delay: 0.2, // Slight delay to sync with button flip
               ease: [0.4, 0, 0.2, 1],
             }}
-            className="fixed inset-0 sm:inset-auto sm:bottom-24 sm:right-6 sm:w-96 sm:h-[600px] z-40 p-0 sm:p-0"
+            className="fixed inset-0 sm:inset-auto sm:bottom-24 sm:right-6 sm:w-96 sm:h-[600px] z-40"
           >
-            <div className="h-full w-full flex flex-col bg-neutral-900 rounded-none sm:rounded-2xl shadow-2xl border-0 sm:border sm:border-neutral-800 overflow-hidden safe-top">
+            <div className="h-full w-full flex flex-col bg-neutral-900 rounded-none sm:rounded-2xl shadow-2xl border-0 sm:border sm:border-neutral-800 overflow-hidden safe-top max-w-full">
               {/* Header */}
               <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-neutral-800 bg-neutral-900">
                 <div className="flex items-center gap-3 flex-1">
@@ -294,22 +294,35 @@ export const ChatWindow = ({
                 className="px-4 sm:px-6 py-3 sm:py-4 border-t border-neutral-800 bg-neutral-900"
                 style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom))' }}
               >
-                <div className="flex gap-2">
+                <div className="flex gap-2 items-center">
                   <textarea
                     ref={inputRef}
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={handleKeyPress}
                     placeholder="Type your message..."
-                    className="flex-1 px-3 sm:px-4 py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none text-sm sm:text-base"
+                    className="flex-1 min-w-0 px-3 sm:px-4 py-2.5 rounded-lg border border-neutral-700 bg-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none text-sm sm:text-base"
                     rows={1}
                   />
                   <button
                     onClick={handleSend}
                     disabled={!inputValue.trim()}
-                    className="px-4 sm:px-6 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 disabled:bg-neutral-700 disabled:cursor-not-allowed text-white font-medium transition-colors text-sm sm:text-base"
+                    className="flex-shrink-0 h-[42px] w-[42px] flex items-center justify-center rounded-lg bg-indigo-600 hover:bg-indigo-700 disabled:bg-neutral-700 disabled:cursor-not-allowed text-white transition-colors"
+                    aria-label="Send message"
                   >
-                    Send
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
+                      />
+                    </svg>
                   </button>
                 </div>
               </div>
