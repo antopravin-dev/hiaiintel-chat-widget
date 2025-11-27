@@ -1,73 +1,146 @@
-# React + TypeScript + Vite
+# HaiIntel Chat Companion — README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project implements **Option A** of the **HaiIntel UI Developer Challenge**:  
+a **floating AI chat companion interface** built to match HaiIntel’s brand aesthetic — dark, minimal, and intelligent.
 
-Currently, two official plugins are available:
+The widget integrates seamlessly into a modern web layout and provides a realistic chat experience with streaming responses, typing animations, and session persistence.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Deployed on Vercel:  
+**https://hiaiintel-chat-widget.vercel.app/**
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+### Floating Launcher & Responsive Chat Window
+- Minimal round floating launcher button  
+- Animated expand/collapse  
+- Smooth transitions using **Framer Motion**  
+- Auto-scrolling with controlled viewport motion
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Brand-Aligned UI
+- Dark, elegant visual theme inspired by HaiIntel.com  
+- Minimalistic structure, purposeful spacing  
+- Clean typography and decluttered layout
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Conversational Experience
+- User and AI message bubbles  
+- Character-by-character **streaming text effect**  
+- Typing indicator animation  
+- Follow-up suggestion chips  
+- Session state persistence (React + localStorage)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Simulated AI Behavior
+- Static JSON-based AI responses  
+- Content inspired by the real HaiIntel site  
+- Fully client-side, no backend required
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Tech Stack
+- **Next.js (App Router)**
+- **React 18**
+- **Tailwind CSS**
+- **Framer Motion**
+- **TypeScript**
+- **Vercel** Deployment
+
+---
+
+## Project Structure
+
+```
+|
+├── app/
+│ ├── components/
+│ │ ├── ChatWidget/
+│ │ │ ├── ChatWindow.tsx
+│ │ │ ├── ChatLauncher.tsx
+│ │ │ ├── MessageBubble.tsx
+│ │ │ └── SuggestionChips.tsx
+│ ├── globals.css
+│ ├── page.tsx
+├── public/
+├── utils/
+│ └── responses.json
+├── hooks/
+│ ├── useChatSession.ts
+│ ├── useLockBodyScroll.ts
+├── package.json
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Development Workflow
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Install Dependencies
+```bash
+npm install
+
+// Run Locally
+npm run dev
+
+// Build
+npm run build
 ```
+
+### Deploy
+
+- Linked repo to Vercel
+- Deployed via Vercel Dashboard
+- Zero backend configuration required
+
+## AI-Assisted Development Process
+
+### Claude Sonnet 4.5
+Used extensively for:
+- Initial component scaffolding
+- Message streaming logic
+- Animation patterns and UI behavior ideas
+- Structural improvements and refactor suggestions
+
+### VS Code + GitHub Copilot
+
+Used for:
+- Real-time code completion
+- TypeScript fixes
+- Tailwind utility generation
+- Minor refactors and logic simplifications
+- Manual Design & Verification
+- Git commits
+
+### All UI/UX decisions were human-led:
+- Finetuned animations
+- Polished spacing and transitions
+- Ensured responsiveness across breakpoints
+- Verified scroll behavior, overflow handling, and session restoration
+- Aligned visuals to HaiIntel’s dark minimal brand feel
+- Validation Process
+
+
+##### Every AI-generated block was:
+- Reviewed for correctness
+- Refined manually
+- Tested locally
+- Re-verified on Vercel preview builds
+
+### Key Implementation Notes
+
+- Auto-scroll triggers when new messages are added
+- Streaming animation uses interval-driven slicing
+- Unique message IDs ensure stable React rendering
+- Framer Motion handles scale, opacity, and 3D rotate effects
+- Body scroll prevented during chat window open
+- Session restored automatically via localStorage hydration
+
+### Limitations & Future Enhancements
+
+- Integrate real AI responses via backend or API
+- Better history persistence using IndexedDB
+- Multi-theme support (light / contrast / system)
+- Add analytics for widget usage
+- Convert to embeddable npm package
+
+### License
+
+This project is submitted for the HaiIntel UI Developer Challenge and intended solely for evaluation purposes.
