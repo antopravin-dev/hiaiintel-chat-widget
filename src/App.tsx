@@ -12,7 +12,7 @@ import { ChatWidget } from './ChatWidget';
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-neutral-950 transition-colors duration-300">
+      <div className="min-h-screen bg-neutral-950 transition-colors duration-300 overflow-x-hidden">
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
